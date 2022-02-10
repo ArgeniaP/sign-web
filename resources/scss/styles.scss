@@ -1,0 +1,18 @@
+// Import custom variables
+@import "../../node_modules/nord/src/sass/nord.scss";
+@import "variables.scss";
+
+// Import bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Import custom style
+@import "global.scss";
+
+// Layout
+@import "./layout/dashboard.scss";
+
+// Navigation
+@import "./navigation/nav.scss";
+@import "./navigation/sidenav/sidenav.scss";
+@import "./navigation/sidenav/sidenav-dark.scss";
+@import "./navigation/topnav.scss";
