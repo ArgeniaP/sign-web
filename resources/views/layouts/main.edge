@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+  </head>
+
+  <body class="sb-nav-fixed">
+    @include('partials/topnav')
+
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        @include('partials/sidenav')
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+          @!section('content')
+        </main>
+        @include('partials/footer')
+      </div>
+    </div>
+  </body>
+
+</html>
