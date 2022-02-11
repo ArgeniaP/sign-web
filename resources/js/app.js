@@ -1,1 +1,3 @@
-import '../css/app.css'
+import '../scss/styles.scss'
+import 'bootstrap'
+import './script'
