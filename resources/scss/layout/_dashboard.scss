@@ -1,19 +1,14 @@
-// Default behavior for the sidenav layout
-// The default positioning for the sidenav is a static position
 #layoutSidenav {
   display: flex;
 
-  // Wraps the .sb-sidenav element and sets the size
   #layoutSidenav_nav {
     flex-basis: $sidenav-base-width;
     flex-shrink: 0;
     transition: transform 0.15s ease-in-out;
     z-index: $zindex-sidenav;
-    // Mobile first tranform - by default the sidenav will be moved off-canvas
     transform: translateX(-$sidenav-base-width);
   }
 
-  // Wraps the content when using the sidenav layout
   #layoutSidenav_content {
     position: relative;
     display: flex;
@@ -26,7 +21,6 @@
   }
 }
 
-// Default behavior for the static sidenav collapse
 .sb-sidenav-toggled {
   #layoutSidenav {
     #layoutSidenav_nav {
@@ -51,7 +45,6 @@
   }
 }
 
-// Responsive styling for the sidenav layout
 @include media-breakpoint-up(lg) {
   #layoutSidenav {
     #layoutSidenav_nav {
@@ -64,7 +57,6 @@
     }
   }
 
-  // Behavior for the sidenav collapse on screens larger than the med breakpoint
   .sb-sidenav-toggled {
     #layoutSidenav {
       #layoutSidenav_nav {
@@ -74,7 +66,6 @@
       #layoutSidenav_content {
         margin-left: -$sidenav-base-width;
 
-        // Removes the sidenav overlay on screens larger than the med breakpoint
         &:before {
           display: none;
         }
