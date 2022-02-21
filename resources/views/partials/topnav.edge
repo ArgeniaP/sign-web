@@ -1,4 +1,4 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-primary bg-dark">
   <a href="/" class="navbar-brand ps-3">Sign-Web App</a>
 
   <button id="sidebarToggle" class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" href="#!">
@@ -15,26 +15,7 @@
     </div>
   </form>
 
-  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-    <li class="nav-item dropdown">
-      <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        <i class="bi bi-person-fill"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <li>
-          <a href="#!" class="dropdown-item">Settings</a>
-        </li>
-        <li>
-          <a href="#!" class="dropdown-item">Activity Log</a>
-        </li>
-        <li>
-          <hr class="dropdown-devider" />
-        </li>
-        <li>
-          <a href="#!" class="dropdown-item">Logout</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <a href="/logout" class="btn btn-link me-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout">
+    <i class="bi bi-box-arrow-right"></i>
+  </a>
 </nav>
