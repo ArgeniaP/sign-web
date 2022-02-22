@@ -1,0 +1,58 @@
+@layout('layouts/main')
+@set('title', 'Dashboard')
+
+@section('content')
+<div class="container-fluid px-4">
+  @include('partials/header')
+
+  <div class="row">
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-primary text-white mb-4">
+        <div class="card-body">Primary Card</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a href="#" class="small text-white strectched-link">View Details</a>
+          <div class="small text-white"><i class="bi bi-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-warning text-white mb-4">
+        <div class="card-body">Warning Card</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a href="#" class="small text-white strectched-link">View Details</a>
+          <div class="small text-white"><i class="bi bi-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-success text-white mb-4">
+        <div class="card-body">Success Card</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a href="#" class="small text-white strectched-link">View Details</a>
+          <div class="small text-white"><i class="bi bi-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-danger text-white mb-4">
+        <div class="card-body">Danger Card</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a href="#" class="small text-white strectched-link">View Details</a>
+          <div class="small text-white"><i class="bi bi-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="bi bi-info-circle"></i> About
+    </div>
+    <div class="card-body">
+      <p class="card-text">This web-app build on AdonisJS Framework, a backend framework for Node.js written using
+        Typescript, using template from startbootstrap-sb-admin, using Bootstrap 5 as stylesheet framework, as the base
+        template of web.</p>
+    </div>
+  </div>
+</div>
+@endsection
