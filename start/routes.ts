@@ -20,6 +20,21 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+Route.get('/', async ({ auth, response }) => {
+  await auth.use('web').check()
+
+  if (auth.use('web').isLoggedIn) {
+    response.redirect('/dashboard')
+  } else {
+    response.redirect('/login')
+  }
 })
+Route.get('/login', ({ view }) => {
+  return view.render('pages/authentication/login')
+})
+Route.get('/logout', 'AppsController.logout')
+
+Route.group(() => {
+  Route.get('/', 'AppsController.index')
+  Route.get('/documents', 'AppsController.show')
+}).prefix('dashboard')
