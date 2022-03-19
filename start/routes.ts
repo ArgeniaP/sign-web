@@ -39,16 +39,11 @@ Route.group(() => {
   Route.group(() => {
     Route.get('/', 'AppsController.index')
     Route.get('/documents', 'AppsController.show')
-  }).prefix('dashboard')
-
-  Route.get('/', async ({ auth, response }) => {
-    if (auth.use('web').isLoggedIn) {
-      response.redirect('dashboard')
-    } else {
-      response.redirect('login')
-    }
   })
-})
+    .prefix('dashboard')
+    .middleware('auth')
 
-Route.post('/files', 'FilesController.upload').as('File.Upload')
-Route.get('/files/*?save=true', 'FilesController.download').as('File.Download')
+  // File Route
+  Route.post('/files', 'FilesController.upload').as('File.Upload')
+  Route.get('/files/*?save=true', 'FilesController.download').as('File.Download')
+})
