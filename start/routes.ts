@@ -20,21 +20,35 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ auth, response }) => {
-  await auth.use('web').check()
-
-  if (auth.use('web').isLoggedIn) {
-    response.redirect('/dashboard')
-  } else {
-    response.redirect('/login')
-  }
-})
-Route.get('/login', ({ view }) => {
-  return view.render('pages/authentication/login')
-})
-Route.get('/logout', 'AppsController.logout')
-
 Route.group(() => {
-  Route.get('/', 'AppsController.index')
-  Route.get('/documents', 'AppsController.show')
-}).prefix('dashboard')
+  // Authentication Route
+  Route.group(() => {
+    Route.get('/', 'AppsController.create').as('Register.View')
+    Route.post('/', 'AppsController.register').as('Register.Process')
+  }).prefix('register')
+
+  Route.group(() => {
+    Route.get('/', ({ view }) => {
+      return view.render('pages/authentication/login')
+    }).as('Login.View')
+    Route.post('/', 'AppsController.login').as('Login.Process')
+  }).prefix('login')
+  Route.get('logout', 'AppsController.logout').as('Logout')
+
+  // Application Route
+  Route.group(() => {
+    Route.get('/', 'AppsController.index')
+    Route.get('/documents', 'AppsController.show')
+  }).prefix('dashboard')
+
+  Route.get('/', async ({ auth, response }) => {
+    if (auth.use('web').isLoggedIn) {
+      response.redirect('dashboard')
+    } else {
+      response.redirect('login')
+    }
+  })
+})
+
+Route.post('/files', 'FilesController.upload').as('File.Upload')
+Route.get('/files/*?save=true', 'FilesController.download').as('File.Download')
