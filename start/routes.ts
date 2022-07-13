@@ -20,6 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+Route.get('/', async ({ response }) => {
+  response.redirect().toRoute('/dashboard')
+})
+
 Route.group(() => {
   // Authentication Route
   Route.group(() => {
