@@ -13,7 +13,7 @@ export default class Employee extends BaseModel {
   public nama: string
 
   @column()
-  public tanggalLahir: Date
+  public tanggalLahir: String
 
   @column()
   public alamat: string
