@@ -8,15 +8,22 @@ export default class UsersController {
   }
 
   public async store({ request, response }: HttpContextContract) {
+    const employee = await Employee.create({
+      nama: request.input('nama'),
+      nip: request.input('nip'),
+      tanggalLahir: request.input('tanggalLahir'),
+      alamat: request.input('alamat'),
+    })
+
     const user = await User.create({
       email: request.input('email'),
       password: request.input('password'),
     })
-    const employee = await Employee.findByOrFail('nip', request.input('nip'))
 
     await employee.related('account').save(user)
+    await user.save()
 
-    if (user.$isPersisted && user.employeeId === employee.id) {
+    if (user.$isPersisted && employee.$isPersisted) {
       response.redirect('/login')
     }
   }
