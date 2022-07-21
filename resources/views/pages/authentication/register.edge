@@ -4,42 +4,55 @@
 @section('auth_content')
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-lg-7">
-      <div class="card shadow-lg border-0 rounded-lg mt-5">
+    <div class="col-lg-10">
+      <div class="card shadow-lg border-0 rounded-lg mt-4">
         <div class="card-header">
-          <h3 class="text-center font-weight-light my-4">Create Account</h3>
+          <h3 class="text-center font-weight-light my-3">Create Account</h3>
         </div>
         <div class="card-body">
-          <form>
-            <div class="row mb-3">
-              <div class="col-md-6">
+          <form action="{{ route('Register.Process') }}" method="POST">
+            <div class="row mb-2">
+              <div class="col-md-4">
                 <div class="form-floating mb-3 mb-md-0">
-                  <input type="text" id="inputFirstName" class="form-control" placeholder="Enter your first name" />
-                  <label for="inputFirstName">First Name</label>
+                  <input type="text" id="inputName" class="form-control" placeholder="Masukan nama lengkap anda"
+                    name="nama" />
+                  <label for="inputName">Nama</label>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-floating">
-                  <input type="text" id="inputLastName" class="form-control" placeholder="Enter your last name" />
-                  <label for="inputLastName">Last Name</label>
+                  <input type="text" id="inputNip" class="form-control" placeholder="Masukan NIP anda" name="nip" />
+                  <label for="inputNip">NIP</label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-floating">
+                  <input type="date" id="inputBirth" class="form-control" placeholder="hh/bb/tttt" name="tglLahir" />
+                  <label for="inputBirth">Tanggal Lahir</label>
                 </div>
               </div>
             </div>
-            <div class="form-floating mb-3">
-              <input type="email" id="inputEmail" class="form-control" placeholder="name@example.com" />
+            <div class="form-floating mb-2">
+              <textarea id="inputAddress" class="form-control" rows="2" placeholder="Masukan alamat disini"
+                name="alamat"></textarea>
+              <label for="inputAddress">Alamat</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input type="email" id="inputEmail" class="form-control" placeholder="name@example.com" name="email" />
               <label for="inputEmail">Email Address</label>
             </div>
-            <div class="row mb-3">
+            <div class="row mb-2">
               <div class="col-md-6">
                 <div class="form-floating mb-3 mb-md-0">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Create a password" />
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Create a password"
+                    name="password" />
                   <label for="inputPassword">Password</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-floating">
-                  <input type="password" id="inputPasswordConfirm" class="form-control"
-                    placeholder="Confirm password" />
+                  <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm password"
+                    name="passwordConfirm" />
                   <label for="inputPasswordConfirm">Password Confirm</label>
                 </div>
               </div>
@@ -53,7 +66,7 @@
         </div>
         <div class="card-footer text-center py-3">
           <div class="small">
-            <a href="#">Have an account? Go to login!</a>
+            <a href="{{ route('Login.View') }}">Have an account? Go to login!</a>
           </div>
         </div>
       </div>
