@@ -19,10 +19,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "file-loader": "^6.2.0",
     "pino-pretty": "^8.0.0",
-    "postcss-loader": "^7.0.0",
+    "postcss-loader": "^6.2.1",
     "prettier": "^2.7.1",
     "sass": "^1.52.3",
-    "sass-loader": "^13.0.0",
+    "sass-loader": "^12.6.0",
     "typescript": "~4.7",
     "youch": "^3.2.0",
     "youch-terminal": "^2.1.4"
