@@ -27,8 +27,8 @@ Route.get('/', async ({ response }) => {
 Route.group(() => {
   // Authentication Route
   Route.group(() => {
-    Route.get('/', 'AppsController.create').as('Register.View')
-    Route.post('/', 'AppsController.register').as('Register.Process')
+    Route.get('/', 'UsersController.create').as('Register.View')
+    Route.post('/', 'UsersController.store').as('Register.Process')
   }).prefix('register')
 
   Route.group(() => {
